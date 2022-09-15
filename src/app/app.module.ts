@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { InputComponent } from './components/input/input.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { InputComponent } from './components/input/input.component';
     InputComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule
   ],
   providers: [],
