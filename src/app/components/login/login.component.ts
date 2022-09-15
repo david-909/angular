@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  isShown = true;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  toggle() {
+    this.isShown = !this.isShown;
   }
 
 }

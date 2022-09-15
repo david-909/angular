@@ -7,7 +7,17 @@
         <button type="submit" class="uk-button uk-button-small uk-width-1-1 text-center uk-margin-small-bottom">Prijavi se</button>
         <div class="uk-flex uk-flex-between btns uk-margin-small-bottom">
             <a class="uk-button uk-button-link" routerLink="/register">Napravite nalog</a>
-            <a class="uk-button uk-button-link">Zaboravljena lozinka</a>
+            <a (click)="toggle()" class="uk-button uk-button-link">Zaboravljena lozinka</a>
         </div>
+    </form>
+</div>
+<div [hidden] = "isShown" class="uk-container uk-flex-between login uk-margin-small-top">
+    <div class="uk-flex uk-flex-between">
+        <h3>Zaboravljena lozinka</h3>
+        <button class="uk-button uk-button-small">X</button>
+    </div>
+    <form>
+        <app-input type="text" name="resetEmail" text="Email"></app-input>
+        <button type="submit" class="uk-button uk-button-small uk-width-1-1 text-center uk-margin-small-bottom btns">Posalji</button>
     </form>
 </div>
