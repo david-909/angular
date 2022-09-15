@@ -14,7 +14,7 @@
 <div [hidden] = "isShown" class="uk-container uk-flex-between login uk-margin-small-top">
     <div class="uk-flex uk-flex-between">
         <h3>Zaboravljena lozinka</h3>
-        <button class="uk-button uk-button-small">X</button>
+        <span class="uk-margin-small-top" (click)="toggle()"><fa-icon [icon]="faTimes"></fa-icon></span>
     </div>
     <form>
         <app-input type="text" name="resetEmail" text="Email"></app-input>
