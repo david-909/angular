@@ -1,5 +1,13 @@
 <div class="uk-container uk-flex-between login">
-    <h3>Login</h3>
-    <app-input type="text" name="email" text="Email"></app-input>
-    <app-input type="password" name="password" text="Password"></app-input>
+    <router-outlet></router-outlet>
+    <h3>Prijava</h3>
+    <form>
+        <app-input type="text" name="email" text="Email"></app-input>
+        <app-input type="password" name="password" text="Lozinka"></app-input>
+        <button type="submit" class="uk-button uk-button-small uk-width-1-1 text-center uk-margin-small-bottom">Prijavi se</button>
+        <div class="uk-flex uk-flex-between btns uk-margin-small-bottom">
+            <a class="uk-button uk-button-link" routerLink="/register">Napravite nalog</a>
+            <a class="uk-button uk-button-link">Zaboravljena lozinka</a>
+        </div>
+    </form>
 </div>

@@ -1,0 +1,14 @@
+<div class="uk-container uk-flex-between register">
+    <router-outlet></router-outlet>
+    <h3>Registracija</h3>
+    <form>
+        <app-input type="text" name="email" text="Email"></app-input>
+        <app-input type="password" name="password" text="Lozinka"></app-input>
+        <app-input type="text" name="name" text="Ime"></app-input>
+        <app-input type="text" name="surname" text="Prezime"></app-input>
+        <button type="submit" class="uk-button uk-button-small uk-width-1-1 text-center uk-margin-small-bottom">Registruj se</button>
+        <div class="uk-flex uk-flex-between btns uk-margin-small-bottom">
+            <a class="uk-button uk-button-link" routerLink="/login">Imate nalog</a>
+        </div>
+    </form>
+</div>
