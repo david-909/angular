@@ -1,8 +1,11 @@
+import { RegisterService } from './../../services/register.service';
+import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { API } from './../../const';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-register',
@@ -11,10 +14,10 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup
-  options = {
-    headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-  };
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) { }
+  
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,
+              private registerService: RegisterService
+    ) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -26,9 +29,16 @@ export class RegisterComponent implements OnInit {
   }
 
   submit(){
-    this.http.post(API+ "api/register", this.form.getRawValue(), this.options).subscribe(() =>{
-      this.router.navigate(["/login"])
-    });
+    const registerData: User = {
+      email: this.form.value.email,
+      password: this.form.value.password,
+      name: this.form.value.name,
+      surname: this.form.value.surname,
+    }
+    this.registerService.register(registerData).subscribe((res)=>{
+      console.log(res);
+    }
+    )
   }
 
 }
