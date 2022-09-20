@@ -9,7 +9,7 @@ const API = "http://127.0.0.1:8000/";
 const HTTP_OPTIONS = {
   headers: new HttpHeaders({
     "Content-type": "application/x-www-form-urlencoded",
-    Authorization: "Basic "+ Buffer.from(OAUTH_CLIENT + OAUTH_SECRET, "base64"),
+    Authorization: "Bearer "+ Buffer.from(OAUTH_CLIENT + OAUTH_SECRET, "base64"),
   })
 };
 
