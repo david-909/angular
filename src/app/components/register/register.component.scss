@@ -8,9 +8,14 @@
     }
     form{
         .btns{
+            border-radius: 10px;
             a{
                 font-size: small;
             }
+        }
+        .input{
+            border-radius: 5px;
+            border: 1px solid black;
         }
     }
 }
