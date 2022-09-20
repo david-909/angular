@@ -1,11 +1,27 @@
 <div class="uk-container uk-flex-between register">
     <router-outlet></router-outlet>
     <h3>Registracija</h3>
-    <form>
-        <app-input type="text" name="email" text="Email"></app-input>
-        <app-input type="password" name="password" text="Lozinka"></app-input>
-        <app-input type="text" name="name" text="Ime"></app-input>
-        <app-input type="text" name="surname" text="Prezime"></app-input>
+    <form [formGroup]="form" (submit)="submit()">
+        <div>
+            <label for="email" id="email">Email </label>
+            <input formControlName="email" type="text" name="email" id="email" class="uk-input uk-form-small uk-margin-small-bottom input">
+        </div>
+        <div>
+            <label for="password" id="password">Lozinka </label>
+            <input formControlName="password" type="password" name="password" id="password" class="uk-input uk-form-small uk-margin-small-bottom input">
+        </div>
+        <div>
+            <label for="name" id="name">Ime </label>
+            <input formControlName="name" type="text" name="name" id="name" class="uk-input uk-form-small uk-margin-small-bottom input">
+        </div>
+        <div>
+            <label for="surname" id="surname">Prezime </label>
+            <input formControlName="surname" type="text" name="surnae" id="surnae" class="uk-input uk-form-small uk-margin-small-bottom input">
+        </div>
+
+
+
+        
         <button type="submit" class="uk-button uk-button-small uk-width-1-1 text-center uk-margin-small-bottom btns">Registruj se</button>
         <div class="uk-flex uk-flex-between btns uk-margin-small-bottom">
             <a class="uk-button uk-button-link" routerLink="/login">Imate nalog</a>
