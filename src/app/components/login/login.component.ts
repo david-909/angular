@@ -25,15 +25,12 @@ export class LoginComponent implements OnInit {
     })
   }
   submit(){
-    const loginData: User = {
+    const loginData: any = {
       email: this.form.value.email,
       password: this.form.value.password,
-      name: this.form.value.name,
-      surname: this.form.value.surname,
     }
     this.loginService.login(loginData).subscribe((res)=>{
       console.log(res);
-      this.router.navigate(["/login"]);
     }
     )
   }
