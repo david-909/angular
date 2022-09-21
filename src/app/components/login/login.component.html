@@ -1,9 +1,15 @@
 <div class="uk-container uk-flex-between login">
     <router-outlet></router-outlet>
     <h3>Prijava</h3>
-    <form>
-        <app-input type="text" name="email" text="Email"></app-input>
-        <app-input type="password" name="password" text="Lozinka"></app-input>
+    <form [formGroup]="form" (submit)="submit()">
+        <div>
+            <label for="email" id="email">Email </label>
+            <input formControlName="email" type="text" name="email" id="email" class="uk-input uk-form-small uk-margin-small-bottom input">
+        </div>
+        <div>
+            <label for="password" id="password">Lozinka </label>
+            <input formControlName="password" type="password" name="password" id="password" class="uk-input uk-form-small uk-margin-small-bottom input">
+        </div>
         <button type="submit" class="uk-button uk-button-small uk-width-1-1 text-center uk-margin-small-bottom">Prijavi se</button>
         <div class="uk-flex uk-flex-between btns uk-margin-small-bottom">
             <a class="uk-button uk-button-link" routerLink="/register">Napravite nalog</a>
@@ -11,7 +17,7 @@
         </div>
     </form>
 </div>
-<div [hidden] = "isShown" class="uk-container uk-flex-between login uk-margin-small-top">
+<div [hidden] = "isHidden" class="uk-container uk-flex-between login uk-margin-small-top">
     <div class="uk-flex uk-flex-between">
         <h3>Zaboravljena lozinka</h3>
         <span class="uk-margin-small-top" (click)="toggle()"><fa-icon [icon]="faTimes"></fa-icon></span>
