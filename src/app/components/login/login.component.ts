@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.login(loginData).subscribe((res)=>{
       console.log(res);
+      this.router.navigate(["profile"]);
     }
     )
   }

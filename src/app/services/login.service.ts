@@ -17,6 +17,6 @@ export class LoginService {
                 .set('client_secret', 'ba9fa26873ca3849f1f16924563d8d09f3e06fd32d35d7ca0c436092521b3cab45cb409d7ae711c4d9b2509be879267dda0025c538330691e31a465814bf76c0');
     return this.http.post(API + "token", body.toString(), {headers: new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded'
-    })});
+    }), withCredentials: true});
   }
 }
