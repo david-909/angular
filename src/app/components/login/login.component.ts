@@ -1,3 +1,4 @@
+import { LoginInterceptor } from './../../interceptors/login.interceptor';
 import { LoginService } from './../../services/login.service';
 import { User } from './../../interfaces/user';
 import { Router } from '@angular/router';
@@ -29,8 +30,10 @@ export class LoginComponent implements OnInit {
       email: this.form.value.email,
       password: this.form.value.password,
     }
-    this.loginService.login(loginData).subscribe((res)=>{
+    this.loginService.login(loginData).subscribe((res: any)=>{
       console.log(res);
+      LoginInterceptor.accessToken = res.access_token;
+      localStorage.setItem("access_token", res.access_token);
       this.router.navigate(["profile"]);
     }
     )
