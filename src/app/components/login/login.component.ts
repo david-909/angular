@@ -1,10 +1,11 @@
+import { ResetPasswordService } from './../../services/reset-password.service';
 import { LoginInterceptor } from './../../interceptors/login.interceptor';
 import { LoginService } from './../../services/login.service';
 import { User } from './../../interfaces/user';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, enableProdMode } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -14,17 +15,23 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
+  formReset: FormGroup;
   isHidden = true;
   faTimes = faTimes;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private loginService: LoginService) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private loginService: LoginService, private resetPasswordService: ResetPasswordService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       email: '',
       password: ''
-    })
+    });
+
+    this.formReset = this.formBuilder.group({
+      email: ''
+    });
   }
+
   submit(){
     const loginData: any = {
       email: this.form.value.email,
@@ -38,8 +45,18 @@ export class LoginComponent implements OnInit {
     }
     )
   }
+
   toggle() {
     this.isHidden = !this.isHidden;
+  }
+
+  submitReset(){
+    const resetData: any = {
+      email: this.formReset.value.email
+    }
+    this.resetPasswordService.requestReset(resetData).subscribe((res)=>{
+      console.log(res);
+    })
   }
 
 }

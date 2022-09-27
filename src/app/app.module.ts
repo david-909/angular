@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ResetComponent } from './components/reset/reset.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     InputComponent,
     RegisterComponent,
     ProfileComponent,
+    ResetComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,8 +22,11 @@
         <h3>Zaboravljena lozinka</h3>
         <span class="uk-margin-small-top" (click)="toggle()"><fa-icon [icon]="faTimes"></fa-icon></span>
     </div>
-    <form>
-        <app-input type="text" name="resetEmail" text="Email"></app-input>
+    <form [formGroup]="formReset" (submit)="submitReset()">
+        <div>
+            <label for="email" id="email">Email </label>
+            <input formControlName="email" type="text" name="email" id="emailReset" class="uk-input uk-form-small uk-margin-small-bottom input">
+        </div>
         <button type="submit" class="uk-button uk-button-small uk-width-1-1 text-center uk-margin-small-bottom btns">Posalji</button>
     </form>
 </div>

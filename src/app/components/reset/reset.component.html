@@ -1,0 +1,11 @@
+<div class="uk-container uk-flex-between login">
+    <router-outlet></router-outlet>
+    <h3>Prijava</h3>
+    <form [formGroup]="form" (submit)="submit()">
+        <div>
+            <label for="password" id="password">Lozinka </label>
+            <input formControlName="password" type="password" name="password" id="password" class="uk-input uk-form-small uk-margin-small-bottom input">
+        </div>
+        <button type="submit" class="uk-button uk-button-small uk-width-1-1 text-center uk-margin-small-bottom">Prijavi se</button>
+    </form>
+</div>

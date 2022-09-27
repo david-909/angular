@@ -17,6 +17,9 @@ export class ProfileComponent implements OnInit {
 
   
   ngOnInit(): void {
+    if(!localStorage.getItem("access_token")){
+      this.router.navigate(["/login"]);
+    }
     if(localStorage.getItem("access_token") != null){
       LoginInterceptor.accessToken = localStorage.getItem("access_token");
     }
