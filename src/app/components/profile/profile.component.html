@@ -1,0 +1,20 @@
+<div>
+    <button (click)="logout()">Logout</button>
+</div>
+<div class="uk-container uk-flex-between register">
+    <router-outlet></router-outlet>
+    <h3>Profil</h3>
+
+    <form [formGroup]="form" (submit)="submit()">
+        <div>
+            <label for="name" id="name">Ime </label>
+            <input formControlName="name" value="{{name}}" type="text" name="name" id="name" class="uk-input uk-form-small uk-margin-small-bottom input">
+        </div>
+        <div>
+            <label for="surname" id="surname">Prezime </label>
+            <input formControlName="surname" value="{{surname}}" type="text" name="surname" id="surname" class="uk-input uk-form-small uk-margin-small-bottom input">
+        </div>
+
+        <button type="submit" class="uk-button uk-button-small uk-width-1-1 text-center uk-margin-small-bottom btns">Izmeni</button>
+    </form>
+</div>
