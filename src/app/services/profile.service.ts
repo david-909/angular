@@ -16,7 +16,7 @@ export class ProfileService {
     const body = new HttpParams().set("name", data.name)
                                 .set("surname", data.surname)
     return this.http.put(API + "api/edit", body.toString(), {headers: new HttpHeaders({
-      'Content-type': 'application/x-www-urlencoded'
-    }), responseType: 'text'});
+      'Content-Type':  'application/x-www-form-urlencoded'
+    }), responseType: "text"});
   }
 }
