@@ -11,8 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   form: FormGroup;
-  name = '';
-  surname = '';
+  name: string = '';
+  surname: string = '';
   constructor(private profileService: ProfileService, private formBuilder: FormBuilder, private router: Router) { }
 
   
@@ -23,17 +23,22 @@ export class ProfileComponent implements OnInit {
     if(localStorage.getItem("access_token") != null){
       LoginInterceptor.accessToken = localStorage.getItem("access_token");
     }
-    this.profileService.getUser().subscribe((res: any)=>{
-      console.log(res);
-      this.name = res.body.name;
-      this.surname = res.body.surname;
-    })
-    
-
     this.form = this.formBuilder.group({
       name: this.name,
       surname: this.surname
     })
+
+    this.profileService.getUser().subscribe((res: any)=>{
+      this.name = res.body.name;
+      this.surname = res.body.surname;
+      
+      this.form = this.formBuilder.group({
+        name: this.name,
+        surname: this.surname
+      })
+    })
+    
+    
   }
 
   submit(){

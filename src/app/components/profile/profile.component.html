@@ -1,5 +1,5 @@
 <div>
-    <button (click)="logout()">Logout</button>
+    <button (click)="logout()" class="uk-button uk-button-link">Logout</button>
 </div>
 <div class="uk-container uk-flex-between register">
     <router-outlet></router-outlet>
@@ -12,7 +12,7 @@
         </div>
         <div>
             <label for="surname" id="surname">Prezime </label>
-            <input formControlName="surname" value="{{surname}}" type="text" name="surname" id="surname" class="uk-input uk-form-small uk-margin-small-bottom input">
+            <input formControlName="surname" value="{{surname}}"  type="text" name="surname" id="surname" class="uk-input uk-form-small uk-margin-small-bottom input">
         </div>
 
         <button type="submit" class="uk-button uk-button-small uk-width-1-1 text-center uk-margin-small-bottom btns">Izmeni</button>
