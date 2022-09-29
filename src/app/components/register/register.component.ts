@@ -35,10 +35,16 @@ export class RegisterComponent implements OnInit {
       name: this.form.value.name,
       surname: this.form.value.surname,
     }
-    this.registerService.register(registerData).subscribe((res)=>{
-      console.log(res);
-      this.router.navigate(["/login"]);
+    this.registerService.register(registerData).subscribe({
+      next: (res: any)=>{
+        console.log(res.error);
+        this.router.navigate(["/login"]);
+      },
+      error: (err: any)=>{
+        console.error(err.error);
+      }
     }
+    
     )
   }
 
