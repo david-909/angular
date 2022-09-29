@@ -38,7 +38,6 @@ export class ProfileComponent implements OnInit {
       })
     })
     
-    
   }
 
   submit(){
