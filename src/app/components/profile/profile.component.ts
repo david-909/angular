@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { LoginInterceptor } from './../../interceptors/login.interceptor';
@@ -13,7 +14,8 @@ export class ProfileComponent implements OnInit {
   form: FormGroup;
   name: string = '';
   surname: string = '';
-  constructor(private profileService: ProfileService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private profileService: ProfileService, private formBuilder: FormBuilder, private router: Router,
+              private toastr: ToastrService) { }
 
   
   ngOnInit(): void {
@@ -46,7 +48,7 @@ export class ProfileComponent implements OnInit {
       surname: this.form.value.surname
     }
     this.profileService.update(data).subscribe((res)=> {
-      console.log(res);
+      this.toastr.success(res, "Uspesno");
     })
   }
 

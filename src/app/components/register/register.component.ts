@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { RegisterService } from './../../services/register.service';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
   form: FormGroup
   
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,
-              private registerService: RegisterService
+              private registerService: RegisterService,
+              private toastr: ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -37,11 +39,15 @@ export class RegisterComponent implements OnInit {
     }
     this.registerService.register(registerData).subscribe({
       next: (res: any)=>{
-        console.log(res.error);
+        this.toastr.success(res, "Uspesno")
         this.router.navigate(["/login"]);
       },
       error: (err: any)=>{
-        console.error(err.error);
+        let greska = err.error.split("ERROR: ");
+        delete greska[Object.keys(greska)[0]];;
+        greska.forEach((e: any) => {
+          this.toastr.error(e, "Greska");
+        });
       }
     }
     

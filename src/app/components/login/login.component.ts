@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit, enableProdMode } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,12 @@ export class LoginComponent implements OnInit {
   isHidden = true;
   faTimes = faTimes;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private loginService: LoginService, private resetPasswordService: ResetPasswordService) { }
+  constructor(private formBuilder: FormBuilder, 
+              private http: HttpClient, 
+              private router: Router,
+              private loginService: LoginService, 
+              private resetPasswordService: ResetPasswordService, 
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -54,8 +60,13 @@ export class LoginComponent implements OnInit {
     const resetData: any = {
       email: this.formReset.value.email
     }
-    this.resetPasswordService.requestReset(resetData).subscribe((res)=>{
-      console.log(res);
+    this.resetPasswordService.requestReset(resetData).subscribe((res:any)=>{
+      if(res.token){
+        this.toastr.success(res.message, "Poslato");
+      }
+      else{
+        this.toastr.warning(res.message);
+      }
     })
   }
 
