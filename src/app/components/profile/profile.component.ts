@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { LoginInterceptor } from './../../interceptors/login.interceptor';
@@ -11,26 +12,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   form: FormGroup;
-  name = '';
-  surname = '';
-  constructor(private profileService: ProfileService, private formBuilder: FormBuilder, private router: Router) { }
+  name: string = '';
+  surname: string = '';
+  constructor(private profileService: ProfileService, private formBuilder: FormBuilder, private router: Router,
+              private toastr: ToastrService) { }
 
   
   ngOnInit(): void {
+    if(!localStorage.getItem("access_token")){
+      this.router.navigate(["/login"]);
+    }
     if(localStorage.getItem("access_token") != null){
       LoginInterceptor.accessToken = localStorage.getItem("access_token");
     }
-    this.profileService.getUser().subscribe((res: any)=>{
-      console.log(res);
-      this.name = res.body.name;
-      this.surname = res.body.surname;
-    })
-    
-
     this.form = this.formBuilder.group({
       name: this.name,
       surname: this.surname
     })
+
+    this.profileService.getUser().subscribe((res: any)=>{
+      this.name = res.body.name;
+      this.surname = res.body.surname;
+      
+      this.form = this.formBuilder.group({
+        name: this.name,
+        surname: this.surname
+      })
+    })
+    
   }
 
   submit(){
@@ -39,7 +48,7 @@ export class ProfileComponent implements OnInit {
       surname: this.form.value.surname
     }
     this.profileService.update(data).subscribe((res)=> {
-      console.log(res);
+      this.toastr.success(res, "Uspesno");
     })
   }
 
@@ -47,7 +56,6 @@ export class ProfileComponent implements OnInit {
     if(localStorage.getItem("access_token") != null){
       localStorage.removeItem("access_token");
       this.router.navigate(["/login"]);
-      //console.log("click", localStorage.getItem("access_token")); Password123456789!
     }
   }
 

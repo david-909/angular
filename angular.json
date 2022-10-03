@@ -102,6 +102,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css",
               "./node_modules/uikit/dist/css/uikit.min.css",
               "./node_modules/uikit/dist/css/uikit-core.min.css"
             ],

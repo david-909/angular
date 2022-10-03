@@ -123,10 +123,10 @@
     "ora" "5.4.1"
     "rxjs" "6.6.7"
 
-"@angular/animations@^14.2.0", "@angular/animations@14.2.1":
-  "integrity" "sha512-bKIhEgn77pOvM+5t/G9FzL8luhoWl8klfASG/07D5df9M3wCrS1OOBKWpQI3l1ZNRfhmfiwNVxbQatHtjykq+g=="
-  "resolved" "https://registry.npmjs.org/@angular/animations/-/animations-14.2.1.tgz"
-  "version" "14.2.1"
+"@angular/animations@^14.2.4", "@angular/animations@14.2.1":
+  "integrity" "sha512-c7uhSayAKQQjaLEGHAg8i0170qj6pixQmG0ox/fJJ0Esz3bb1IZcAUO9JSXSykpUBFV7Dm8pmorji4w3VvN4gQ=="
+  "resolved" "https://registry.npmjs.org/@angular/animations/-/animations-14.2.4.tgz"
+  "version" "14.2.4"
   dependencies:
     "tslib" "^2.3.0"
 
@@ -156,7 +156,7 @@
     "uuid" "8.3.2"
     "yargs" "17.5.1"
 
-"@angular/common@^14.2.0", "@angular/common@14.2.1":
+"@angular/common@^14.2.0", "@angular/common@>=14.0.0-0", "@angular/common@14.2.1":
   "integrity" "sha512-7FvYOBrgM9owmJvckC/tyJ9reI3BKXChm7Y2iu0WI94XIrI+FSQ7QYNwahDpcizyYAboVwe5lYXgDRrbzRfkKg=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-14.2.1.tgz"
   "version" "14.2.1"
@@ -186,7 +186,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^14.0.0", "@angular/core@^14.2.0", "@angular/core@14.2.1":
+"@angular/core@^14.0.0", "@angular/core@^14.2.0", "@angular/core@>=14.0.0-0", "@angular/core@14.2.1", "@angular/core@14.2.4":
   "integrity" "sha512-TTMfunZ6TWaXA7SeWHbJBmJZIW4x48SjXrUIxMQ/PSgq9E/JXgarYDmfn00yyVRJDEGfjqzUW09Wtzc1mOkWLQ=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-14.2.1.tgz"
   "version" "14.2.1"
@@ -207,7 +207,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/platform-browser@^14.2.0", "@angular/platform-browser@14.2.1":
+"@angular/platform-browser@^14.2.0", "@angular/platform-browser@>=14.0.0-0", "@angular/platform-browser@14.2.1":
   "integrity" "sha512-itL9b83R3+XeJzRyRZ1CCrXPavlkzM6QSOJfvUMRGB8HZLl9QJRXS1+nI5nPER+nVz6PKTkjPlA9d/1ZrZW5wQ=="
   "resolved" "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-14.2.1.tgz"
   "version" "14.2.1"
@@ -4255,6 +4255,13 @@
   "integrity" "sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw=="
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
+
+"ngx-toastr@^15.1.0":
+  "integrity" "sha512-4HQyaQ85DyVL9CUpxD/M2QKk8WCpdSXDN0HUQey3u71SMjEs4bdUv5lfz+0dMIy/qVuD7SnEysWJOUVcFDr+wg=="
+  "resolved" "https://registry.npmjs.org/ngx-toastr/-/ngx-toastr-15.1.0.tgz"
+  "version" "15.1.0"
+  dependencies:
+    "tslib" "^2.3.0"
 
 "node-forge@^1":
   "integrity" "sha512-dPEtOeMvF9VMcYV/1Wb8CPoVAXtp6MKMlcbAt4ddqmGqUJ6fQZFXkNZNkNlfevtNkGtaSoXf/vNNNSvgrdXwtA=="
