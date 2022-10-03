@@ -56,7 +56,6 @@ export class ProfileComponent implements OnInit {
     if(localStorage.getItem("access_token") != null){
       localStorage.removeItem("access_token");
       this.router.navigate(["/login"]);
-      //console.log("click", localStorage.getItem("access_token")); Password123456789!
     }
   }
 
