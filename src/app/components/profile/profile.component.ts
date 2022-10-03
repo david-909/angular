@@ -47,8 +47,17 @@ export class ProfileComponent implements OnInit {
       name: this.form.value.name,
       surname: this.form.value.surname
     }
-    this.profileService.update(data).subscribe((res)=> {
-      this.toastr.success(res, "Uspesno");
+    this.profileService.update(data).subscribe({
+      next: (res: any) =>{
+        this.toastr.success("Uspesno ste promenili Vase podatke", "Uspesno");
+      },
+      error: (err: any)=> {
+        let greska = err.error.split("ERROR: ");
+        delete greska[Object.keys(greska)[0]];;
+        greska.forEach((e: any) => {
+          this.toastr.error(e, "Greska");
+        });
+      }
     })
   }
 
